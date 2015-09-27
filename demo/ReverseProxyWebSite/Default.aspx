@@ -90,27 +90,7 @@
 <body>
     <h1>请选择要浏览的站点</h1>
 
-    <div class="siteList">
- 		<a href="http://10.5.10.140:8400">新ERP体验版本</a>
-        <a href="http://10.5.10.140:1002">新ERP内测版本</a>
-        <a href="http://10.5.10.82:9000">新ERP日常测试</a>
-        <a href="http://10.5.10.169:8252">ERP2.5.2演示库站点 </a>
-        <a href="http://10.5.10.169:8253">ERP2.5.3演示库站点</a>
-        <a href="http://10.5.10.169:8254">ERP2.5.4演示库站点</a>
-        <a href="http://10.5.10.169:8255">ERP2.5.5演示库站点 </a>
-        <%--<a href="http://10.5.10.169:8256" class="incompatible">ERP2.5.6演示库站点</a>
-        <a href="http://10.5.10.169:8257" class="incompatible">ERP2.5.7演示库站点</a>
-        <a href="http://10.5.10.169:8258" class="incompatible">ERP2.5.8演示库站点</a>
-        <a href="http://10.5.10.169:8301" class="incompatible">ERP3.0.1演示库站点</a>
-        <a href="http://10.5.10.169:8302" class="incompatible">ERP3.0.2演示库站点</a>
-        <a href="http://10.5.10.169:8303" class="incompatible">ERP3.0.3演示库站点</a>
-        <a href="http://10.5.10.169:8304" class="incompatible">ERP3.0.4演示库站点</a>
-        <a href="http://10.5.10.169:8305" class="incompatible">ERP3.0.5演示库站点</a>
-        <a href="http://10.5.10.169:8315" class="incompatible">ERP3.0.5SP1演示库站点</a>
-        <a href="http://10.5.10.169:8306" class="incompatible">ERP3.0.6演示库站点</a>
-        <a href="http://10.5.10.169:8307" class="incompatible">ERP3.0.7演示库站点</a>--%>  
-
-        <%--<a href="http://www.map2-demo.com/">www.map2-demo.com</a>
+    <div class="siteList"> 		
         <a href="http://www.fish-ajax-cors.com/">www.fish-ajax-cors.com/</a>
         <a href="http://www.fish-mvc-demo.com/">www.fish-mvc-demo.com</a>
         <a href="http://10.5.106.60:58123/">ClownFish.Mvc DEMO</a>
@@ -121,7 +101,7 @@
         <a href="http://www.dingtalk.com/">www.dingtalk.com</a>
         <a href="http://www.163.com/">www.163.com</a>
         <a href="http://www.hao123.com/">www.hao123.com</a>
-        <a href="http://tucao.mysoft.cn/">tucao.mysoft.cn/</a>--%>
+        <a href="http://tucao.mysoft.cn/">tucao.mysoft.cn/</a>
 
     </div>
 
