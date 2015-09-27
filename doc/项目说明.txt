@@ -1,0 +1,32 @@
+
+ClownFish.Mvc
+---------------------------------------------------
+包含了ClownFish.Mvc的完整实现代码。
+
+
+
+ClownFish.Mvc-DEMO (MvcDemoWebSite1)
+---------------------------------------------------
+演示了基本的ClownFish.Mvc使用方法（不包含框架扩展使用方法）。
+更多详细介绍请参考我的博客：
+http://www.cnblogs.com/fish-li/archive/2012/02/12/2348395.html
+http://www.cnblogs.com/fish-li/archive/2012/02/21/2361982.html
+
+
+CorsClientWebSite1
+---------------------------------------------------
+演示了3种跨域方法
+
+
+
+ReverseProxyWebSite
+---------------------------------------------------
+演示了基于ClownFish.Mvc的反向代理
+
+
+
+TestApplication1
+---------------------------------------------------
+一个WinForm的测试程序，2个用途：
+1、用自动化测试方式，保证在重构ClownFish.Mvc时功能稳定。
+2、演示当ClownFish.Mvc做为服务框架时，客户端如何调用（同步 / 异步）

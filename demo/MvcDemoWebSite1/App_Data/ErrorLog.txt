@@ -1,0 +1,665 @@
+﻿Url: /Pages/Customers.aspx
+System.Web.HttpCompileException (0x80004005): e:\ProjectFiles\MyMVC\ClownFish.Mvc\demo\MvcDemoWebSite1\Pages\Style1\Customers.cshtml(55): error CS1061: “ASP._Page_Pages_Style1_Customers_cshtml”不包含“RenderPartial”的定义，并且找不到可接受类型为“ASP._Page_Pages_Style1_Customers_cshtml”的第一个参数的扩展方法“RenderPartial”(是否缺少 using 指令或程序集引用?)
+   在 System.Web.Compilation.AssemblyBuilder.Compile()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   在 System.Web.WebPages.BuildManagerWrapper.CreateInstanceOfType[T](String virtualPath)
+   在 System.Web.WebPages.VirtualPathFactoryManager.CreateInstanceOfType[T](String virtualPath)
+   在 System.Web.WebPages.WebPageBase.CreateInstanceFromVirtualPath(String virtualPath, IVirtualPathFactory virtualPathFactory)
+   在 ClownFish.Mvc.RazorHelper.RenderPage(HttpContextBase context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 56
+   在 ClownFish.Mvc.RazorHelper.Render(HttpContextBase context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 41
+   在 ClownFish.Mvc.RazorHelper.Render(HttpContext context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 28
+   在 ClownFish.Mvc.PageResult.ClownFish.Mvc.IActionResult.Ouput(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Action\PageResult.cs:行号 49
+   在 ClownFish.Mvc.ActionExecutor.OutputResult(Object result) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 383
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 104
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Customers.aspx
+System.Web.HttpCompileException (0x80004005): e:\ProjectFiles\MyMVC\ClownFish.Mvc\demo\MvcDemoWebSite1\Pages\Style1\Customers.cshtml(55): error CS1061: “ASP._Page_Pages_Style1_Customers_cshtml”不包含“RenderPartial”的定义，并且找不到可接受类型为“ASP._Page_Pages_Style1_Customers_cshtml”的第一个参数的扩展方法“RenderPartial”(是否缺少 using 指令或程序集引用?)
+   在 System.Web.Compilation.AssemblyBuilder.Compile()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   在 System.Web.WebPages.BuildManagerWrapper.CreateInstanceOfType[T](String virtualPath)
+   在 System.Web.WebPages.VirtualPathFactoryManager.CreateInstanceOfType[T](String virtualPath)
+   在 System.Web.WebPages.WebPageBase.CreateInstanceFromVirtualPath(String virtualPath, IVirtualPathFactory virtualPathFactory)
+   在 ClownFish.Mvc.RazorHelper.RenderPage(HttpContextBase context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 56
+   在 ClownFish.Mvc.RazorHelper.Render(HttpContextBase context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 41
+   在 ClownFish.Mvc.RazorHelper.Render(HttpContext context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 28
+   在 ClownFish.Mvc.PageResult.ClownFish.Mvc.IActionResult.Ouput(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Action\PageResult.cs:行号 49
+   在 ClownFish.Mvc.ActionExecutor.OutputResult(Object result) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 383
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 104
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Products.aspx
+System.Web.HttpCompileException (0x80004005): e:\ProjectFiles\MyMVC\ClownFish.Mvc\demo\MvcDemoWebSite1\Pages\Style1\Controls\ProductInfo.cshtml(27): error CS0117: “System.Web.WebPages.Html.HtmlHelper”并不包含“GetUnitHtmlOptions”的定义
+   在 System.Web.Compilation.AssemblyBuilder.Compile()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   在 System.Web.WebPages.BuildManagerWrapper.CreateInstanceOfType[T](String virtualPath)
+   在 System.Web.WebPages.VirtualPathFactoryManager.CreateInstanceOfType[T](String virtualPath)
+   在 System.Web.WebPages.WebPageBase.CreatePageFromVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, DisplayModeProvider displayModeProvider, IDisplayMode displayMode)
+   在 System.Web.WebPages.WebPageBase.<>c__DisplayClass7.<RenderPageCore>b__6(TextWriter writer)
+   在 System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   在 ASP._Page_Pages_Style1_Products_cshtml.Execute() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\demo\MvcDemoWebSite1\Pages\Style1\Products.cshtml:行号 69
+   在 System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   在 System.Web.WebPages.WebPage.ExecutePageHierarchy(IEnumerable`1 executors)
+   在 System.Web.WebPages.WebPage.ExecutePageHierarchy()
+   在 System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   在 ClownFish.Mvc.RazorHelper.RenderPage(HttpContextBase context, String pageVirtualPath, Object model)
+   在 ClownFish.Mvc.RazorHelper.Render(HttpContextBase context, String pageVirtualPath, Object model)
+   在 ClownFish.Mvc.RazorHelper.Render(HttpContext context, String pageVirtualPath, Object model)
+   在 ClownFish.Mvc.PageResult.ClownFish.Mvc.IActionResult.Ouput(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.OutputResult(Object result)
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Products.aspx
+System.Web.HttpCompileException (0x80004005): e:\ProjectFiles\MyMVC\ClownFish.Mvc\demo\MvcDemoWebSite1\Pages\Style1\Products.cshtml(18): error CS1061: “System.Collections.Generic.List<DEMO.Model.Category>”不包含“ToHtmlOptions”的定义，并且找不到可接受类型为“System.Collections.Generic.List<DEMO.Model.Category>”的第一个参数的扩展方法“ToHtmlOptions”(是否缺少 using 指令或程序集引用?)
+   在 System.Web.Compilation.AssemblyBuilder.Compile()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   在 System.Web.WebPages.BuildManagerWrapper.CreateInstanceOfType[T](String virtualPath)
+   在 System.Web.WebPages.VirtualPathFactoryManager.CreateInstanceOfType[T](String virtualPath)
+   在 System.Web.WebPages.WebPageBase.CreateInstanceFromVirtualPath(String virtualPath, IVirtualPathFactory virtualPathFactory)
+   在 ClownFish.Mvc.RazorHelper.RenderPage(HttpContextBase context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 56
+   在 ClownFish.Mvc.RazorHelper.Render(HttpContextBase context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 41
+   在 ClownFish.Mvc.RazorHelper.Render(HttpContext context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 28
+   在 ClownFish.Mvc.PageResult.ClownFish.Mvc.IActionResult.Ouput(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Action\PageResult.cs:行号 49
+   在 ClownFish.Mvc.ActionExecutor.OutputResult(Object result) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 383
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 104
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /ajax/ns/Order/Show.aspx?id=%3C%=%20item.OrderID%20%%3E&_=1441349859176
+System.InvalidCastException: 数据转换失败，当前参数名：id ---> System.FormatException: 输入字符串的格式不正确。
+   在 System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   在 System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   在 System.String.System.IConvertible.ToInt32(IFormatProvider provider)
+   在 System.Convert.ChangeType(Object value, Type conversionType, IFormatProvider provider)
+   在 ClownFish.Mvc.Reflection.ModelHelper.UnSafeChangeType(String value, Type conversionType) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Reflection\ModelHelper.cs:行号 208
+   在 ClownFish.Mvc.Reflection.ModelHelper.GetValueByNameAndTypeFrommRequest(HttpContext context, String name, Type type, String parentName) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Reflection\ModelHelper.cs:行号 165
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 ClownFish.Mvc.Reflection.ModelHelper.GetValueByNameAndTypeFrommRequest(HttpContext context, String name, Type type, String parentName) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Reflection\ModelHelper.cs:行号 168
+   在 ClownFish.Mvc.Serializer.FormDataProvider.GetObjectFromHttp(HttpContext context, ParameterInfo p) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Serializer\FormDataProvider.cs:行号 129
+   在 ClownFish.Mvc.Serializer.FormDataProvider.GetParameters(HttpContext context, ActionDescription action) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Serializer\FormDataProvider.cs:行号 85
+   在 ClownFish.Mvc.ActionExecutor.GetActionParameters() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 302
+   在 ClownFish.Mvc.ActionExecutor.ExecuteAction() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 156
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 98
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /ajax/ns/Order/Show.aspx?id=34&_=1441349983710
+System.Web.HttpCompileException (0x80004005): e:\ProjectFiles\MyMVC\ClownFish.Mvc\demo\MvcDemoWebSite1\Pages\Style1\Controls\OrderInfo.cshtml(31): error CS0103: 当前上下文中不存在名称“item”
+   在 System.Web.Compilation.AssemblyBuilder.Compile()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   在 System.Web.WebPages.BuildManagerWrapper.CreateInstanceOfType[T](String virtualPath)
+   在 System.Web.WebPages.VirtualPathFactoryManager.CreateInstanceOfType[T](String virtualPath)
+   在 System.Web.WebPages.WebPageBase.CreateInstanceFromVirtualPath(String virtualPath, IVirtualPathFactory virtualPathFactory)
+   在 ClownFish.Mvc.RazorHelper.RenderPage(HttpContextBase context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 56
+   在 ClownFish.Mvc.RazorHelper.Render(HttpContextBase context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 41
+   在 ClownFish.Mvc.RazorHelper.Render(HttpContext context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 28
+   在 ClownFish.Mvc.PageResult.ClownFish.Mvc.IActionResult.Ouput(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Action\PageResult.cs:行号 49
+   在 ClownFish.Mvc.ActionExecutor.OutputResult(Object result) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 383
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 104
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /ajax/ns/Order/Show.aspx?id=34&_=1441350002828
+System.Web.HttpCompileException (0x80004005): e:\ProjectFiles\MyMVC\ClownFish.Mvc\demo\MvcDemoWebSite1\Pages\Style1\Controls\OrderInfo.cshtml(31): error CS0103: 当前上下文中不存在名称“item”
+   在 System.Web.Compilation.AssemblyBuilder.Compile()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   在 System.Web.WebPages.BuildManagerWrapper.CreateInstanceOfType[T](String virtualPath)
+   在 System.Web.WebPages.VirtualPathFactoryManager.CreateInstanceOfType[T](String virtualPath)
+   在 System.Web.WebPages.WebPageBase.CreateInstanceFromVirtualPath(String virtualPath, IVirtualPathFactory virtualPathFactory)
+   在 ClownFish.Mvc.RazorHelper.RenderPage(HttpContextBase context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 56
+   在 ClownFish.Mvc.RazorHelper.Render(HttpContextBase context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 41
+   在 ClownFish.Mvc.RazorHelper.Render(HttpContext context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 28
+   在 ClownFish.Mvc.PageResult.ClownFish.Mvc.IActionResult.Ouput(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Action\PageResult.cs:行号 49
+   在 ClownFish.Mvc.ActionExecutor.OutputResult(Object result) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 383
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 104
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /ajax/ns/Order/Show.aspx?id=34&_=1441350002828
+System.Web.HttpCompileException (0x80004005): e:\ProjectFiles\MyMVC\ClownFish.Mvc\demo\MvcDemoWebSite1\Pages\Style1\Controls\OrderInfo.cshtml(31): error CS0103: 当前上下文中不存在名称“item”
+   在 System.Web.Compilation.AssemblyBuilder.Compile()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   在 System.Web.WebPages.BuildManagerWrapper.CreateInstanceOfType[T](String virtualPath)
+   在 System.Web.WebPages.VirtualPathFactoryManager.CreateInstanceOfType[T](String virtualPath)
+   在 System.Web.WebPages.WebPageBase.CreateInstanceFromVirtualPath(String virtualPath, IVirtualPathFactory virtualPathFactory)
+   在 ClownFish.Mvc.RazorHelper.RenderPage(HttpContextBase context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 56
+   在 ClownFish.Mvc.RazorHelper.Render(HttpContextBase context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 41
+   在 ClownFish.Mvc.RazorHelper.Render(HttpContext context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\RazorHelper.cs:行号 28
+   在 ClownFish.Mvc.PageResult.ClownFish.Mvc.IActionResult.Ouput(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Action\PageResult.cs:行号 49
+   在 ClownFish.Mvc.ActionExecutor.OutputResult(Object result) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 383
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 104
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Ajax/ns/TestCors/Add.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Ajax/ns/TestCors/Add.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Common\ExceptionHelper.cs:行号 16
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 262
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 94
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /AjaxPK/DEMO_1_ScriptManager.aspx
+System.Web.HttpUnhandledException (0x80004005): 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.InvalidOperationException: 仅在类定义上有 [ScriptService] 特性的 Web 服务才能从脚本中调用。
+   在 System.Web.Script.Services.WebServiceData..ctor(Type type, Boolean pageMethods)
+   在 System.Web.Script.Services.WebServiceData.GetWebServiceData(HttpContext context, String virtualPath, Boolean failIfNoData, Boolean pageMethods, Boolean inlineScript)
+   在 System.Web.Script.Services.WebServiceClientProxyGenerator.GetInlineClientProxyScript(String path, HttpContext context, Boolean debug)
+   在 System.Web.UI.ServiceReference.Register(Control containingControl, ScriptManager scriptManager)
+   在 System.Web.UI.ScriptManager.RegisterServices()
+   在 System.Web.UI.Page.OnPreRenderComplete(EventArgs e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.ajaxpk_demo_1_scriptmanager_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v4.0.30319\Temporary ASP.NET Files\root\128451f6\343ddbb\App_Web_upmvejbe.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/LoginUser.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/LoginUser.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Common\ExceptionHelper.cs:行号 16
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 262
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 94
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/Fish.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/Fish.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Common\ExceptionHelper.cs:行号 16
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 262
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 94
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/Fish.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/Fish.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Common\ExceptionHelper.cs:行号 16
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 262
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 94
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/RightNo23.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/RightNo23.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Common\ExceptionHelper.cs:行号 16
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 262
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 94
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/RightNo23.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/RightNo23.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Common\ExceptionHelper.cs:行号 16
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 262
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 94
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/LoginUser.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/LoginUser.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Common\ExceptionHelper.cs:行号 16
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 262
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 94
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/Fish.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/Fish.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Common\ExceptionHelper.cs:行号 16
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 262
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 94
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/Fish.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/Fish.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Common\ExceptionHelper.cs:行号 16
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 262
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 94
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/RightNo23.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/RightNo23.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Common\ExceptionHelper.cs:行号 16
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 262
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 94
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/RightNo23.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/RightNo23.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Common\ExceptionHelper.cs:行号 16
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 262
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 94
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/LoginUser.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/LoginUser.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/Fish.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/Fish.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/Fish.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/Fish.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/RightNo23.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/RightNo23.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/RightNo23.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/RightNo23.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/LoginUser.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/LoginUser.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/Fish.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/Fish.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/Fish.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/Fish.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/RightNo23.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/RightNo23.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/RightNo23.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/RightNo23.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Default.aspx
+System.Web.HttpParseException (0x80004005): e:\ProjectFiles\MyMVC\ClownFish.Mvc\demo\MvcDemoWebSite1\Pages\Style2\MasterPage.master(8): error CS0234: 命名空间“DEMO.Controllers”中不存在类型或命名空间名称“StyleHelper”(是否缺少程序集引用?) ---> System.Web.HttpCompileException (0x80004005): e:\ProjectFiles\MyMVC\ClownFish.Mvc\demo\MvcDemoWebSite1\Pages\Style2\MasterPage.master(8): error CS0234: 命名空间“DEMO.Controllers”中不存在类型或命名空间名称“StyleHelper”(是否缺少程序集引用?)
+   在 System.Web.Compilation.BuildManager.PostProcessFoundBuildResult(BuildResult result, Boolean keyFromVPP, VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetBuildResultFromCacheInternal(String cacheKey, Boolean keyFromVPP, VirtualPath virtualPath, Int64 hashCode, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultFromCacheInternal(VirtualPath virtualPath, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResult(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean ensureIsUpToDate)
+   在 System.Web.UI.BaseTemplateParser.GetReferencedType(VirtualPath virtualPath, Boolean allowNoCompile)
+   在 System.Web.UI.PageParser.ProcessMainDirectiveAttribute(String deviceName, String name, String value, IDictionary parseData)
+   在 System.Web.UI.TemplateParser.ProcessMainDirective(IDictionary mainDirective)
+   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   在 System.Web.UI.TemplateParser.ParseInternal()
+   在 System.Web.UI.TemplateParser.Parse()
+   在 System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   在 ClownFish.Mvc.PageExecutor.GetHandler() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\PageExecutor.cs:行号 126
+   在 ClownFish.Mvc.PageExecutor.RenderPage(HttpContext context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\PageExecutor.cs:行号 67
+   在 ClownFish.Mvc.PageExecutor.Render(HttpContext context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\PageExecutor.cs:行号 32
+   在 ClownFish.Mvc.PageResult.ClownFish.Mvc.IActionResult.Ouput(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Action\PageResult.cs:行号 49
+   在 ClownFish.Mvc.ActionExecutor.OutputResult(Object result) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 400
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 118
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Default.aspx
+System.Web.HttpParseException (0x80004005): e:\ProjectFiles\MyMVC\ClownFish.Mvc\demo\MvcDemoWebSite1\Pages\Style2\MasterPage.master(8): error CS0234: 命名空间“DEMO.Controllers”中不存在类型或命名空间名称“BaseDemoController”(是否缺少程序集引用?) ---> System.Web.HttpCompileException (0x80004005): e:\ProjectFiles\MyMVC\ClownFish.Mvc\demo\MvcDemoWebSite1\Pages\Style2\MasterPage.master(8): error CS0234: 命名空间“DEMO.Controllers”中不存在类型或命名空间名称“BaseDemoController”(是否缺少程序集引用?)
+   在 System.Web.Compilation.BuildManager.PostProcessFoundBuildResult(BuildResult result, Boolean keyFromVPP, VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetBuildResultFromCacheInternal(String cacheKey, Boolean keyFromVPP, VirtualPath virtualPath, Int64 hashCode, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultFromCacheInternal(VirtualPath virtualPath, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResult(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean ensureIsUpToDate)
+   在 System.Web.UI.BaseTemplateParser.GetReferencedType(VirtualPath virtualPath, Boolean allowNoCompile)
+   在 System.Web.UI.PageParser.ProcessMainDirectiveAttribute(String deviceName, String name, String value, IDictionary parseData)
+   在 System.Web.UI.TemplateParser.ProcessMainDirective(IDictionary mainDirective)
+   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   在 System.Web.UI.TemplateParser.ParseInternal()
+   在 System.Web.UI.TemplateParser.Parse()
+   在 System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   在 ClownFish.Mvc.PageExecutor.GetHandler() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\PageExecutor.cs:行号 126
+   在 ClownFish.Mvc.PageExecutor.RenderPage(HttpContext context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\PageExecutor.cs:行号 67
+   在 ClownFish.Mvc.PageExecutor.Render(HttpContext context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\PageExecutor.cs:行号 32
+   在 ClownFish.Mvc.PageResult.ClownFish.Mvc.IActionResult.Ouput(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Action\PageResult.cs:行号 49
+   在 ClownFish.Mvc.ActionExecutor.OutputResult(Object result) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 400
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 118
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Default.aspx
+System.Web.HttpParseException (0x80004005): e:\ProjectFiles\MyMVC\ClownFish.Mvc\demo\MvcDemoWebSite1\Pages\Style2\MasterPage.master(8): error CS0234: 命名空间“DEMO.Controllers”中不存在类型或命名空间名称“BaseDemoController”(是否缺少程序集引用?) ---> System.Web.HttpCompileException (0x80004005): e:\ProjectFiles\MyMVC\ClownFish.Mvc\demo\MvcDemoWebSite1\Pages\Style2\MasterPage.master(8): error CS0234: 命名空间“DEMO.Controllers”中不存在类型或命名空间名称“BaseDemoController”(是否缺少程序集引用?)
+   在 System.Web.Compilation.BuildManager.PostProcessFoundBuildResult(BuildResult result, Boolean keyFromVPP, VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetBuildResultFromCacheInternal(String cacheKey, Boolean keyFromVPP, VirtualPath virtualPath, Int64 hashCode, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultFromCacheInternal(VirtualPath virtualPath, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResult(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean ensureIsUpToDate)
+   在 System.Web.UI.BaseTemplateParser.GetReferencedType(VirtualPath virtualPath, Boolean allowNoCompile)
+   在 System.Web.UI.PageParser.ProcessMainDirectiveAttribute(String deviceName, String name, String value, IDictionary parseData)
+   在 System.Web.UI.TemplateParser.ProcessMainDirective(IDictionary mainDirective)
+   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   在 System.Web.UI.TemplateParser.ParseInternal()
+   在 System.Web.UI.TemplateParser.Parse()
+   在 System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   在 ClownFish.Mvc.PageExecutor.GetHandler() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\PageExecutor.cs:行号 126
+   在 ClownFish.Mvc.PageExecutor.RenderPage(HttpContext context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\PageExecutor.cs:行号 67
+   在 ClownFish.Mvc.PageExecutor.Render(HttpContext context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\PageExecutor.cs:行号 32
+   在 ClownFish.Mvc.PageResult.ClownFish.Mvc.IActionResult.Ouput(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Action\PageResult.cs:行号 49
+   在 ClownFish.Mvc.ActionExecutor.OutputResult(Object result) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 400
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 118
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Default.aspx
+System.Web.HttpParseException (0x80004005): e:\ProjectFiles\MyMVC\ClownFish.Mvc\demo\MvcDemoWebSite1\Pages\Style2\MasterPage.master(8): error CS0120: 非静态字段、方法或属性“DEMO.Controllers.Page.BaseDemoController.GetPageStyle()”要求对象引用 ---> System.Web.HttpCompileException (0x80004005): e:\ProjectFiles\MyMVC\ClownFish.Mvc\demo\MvcDemoWebSite1\Pages\Style2\MasterPage.master(8): error CS0120: 非静态字段、方法或属性“DEMO.Controllers.Page.BaseDemoController.GetPageStyle()”要求对象引用
+   在 System.Web.Compilation.BuildManager.PostProcessFoundBuildResult(BuildResult result, Boolean keyFromVPP, VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetBuildResultFromCacheInternal(String cacheKey, Boolean keyFromVPP, VirtualPath virtualPath, Int64 hashCode, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultFromCacheInternal(VirtualPath virtualPath, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResult(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean ensureIsUpToDate)
+   在 System.Web.UI.BaseTemplateParser.GetReferencedType(VirtualPath virtualPath, Boolean allowNoCompile)
+   在 System.Web.UI.PageParser.ProcessMainDirectiveAttribute(String deviceName, String name, String value, IDictionary parseData)
+   在 System.Web.UI.TemplateParser.ProcessMainDirective(IDictionary mainDirective)
+   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   在 System.Web.UI.TemplateParser.ParseInternal()
+   在 System.Web.UI.TemplateParser.Parse()
+   在 System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp)
+   在 ClownFish.Mvc.PageExecutor.GetHandler() 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\PageExecutor.cs:行号 126
+   在 ClownFish.Mvc.PageExecutor.RenderPage(HttpContext context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\PageExecutor.cs:行号 67
+   在 ClownFish.Mvc.PageExecutor.Render(HttpContext context, String pageVirtualPath, Object model) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Output\PageExecutor.cs:行号 32
+   在 ClownFish.Mvc.PageResult.ClownFish.Mvc.IActionResult.Ouput(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Action\PageResult.cs:行号 49
+   在 ClownFish.Mvc.ActionExecutor.OutputResult(Object result) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 400
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionExecutor.cs:行号 118
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context) 位置 e:\ProjectFiles\MyMVC\ClownFish.Mvc\src\mvc\Pipeline\ActionHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/LoginUser.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/LoginUser.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/Fish.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/Fish.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/Fish.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/Fish.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/RightNo23.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/RightNo23.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/RightNo23.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/RightNo23.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/LoginUser.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/LoginUser.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/Fish.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/Fish.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/Fish.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/Fish.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/RightNo23.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/RightNo23.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Url: /Pages/Demo/TestAuthorize/RightNo23.aspx
+System.Web.HttpException (0x80004005): 很抱歉，您没有合适的权限访问该资源：/Pages/Demo/TestAuthorize/RightNo23.aspx
+   在 ClownFish.Mvc.ExceptionHelper.Throw403Exception(HttpContext context)
+   在 ClownFish.Mvc.ActionExecutor.AuthorizeRequest()
+   在 ClownFish.Mvc.ActionExecutor.ProcessRequest(HttpContext context, ActionHandler handler)
+   在 ClownFish.Mvc.ActionHandler.ProcessRequest(HttpContext context)
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+

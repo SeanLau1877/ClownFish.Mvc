@@ -1,0 +1,2731 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ClownFish.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:ClownFish.Mvc.Client.ClientExtensions">
+            <summary>
+            定义HttpClient的扩展方法的工具类
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.ClientExtensions.Send``1(ClownFish.Mvc.Client.HttpOption)">
+            <summary>
+            根据指定的HttpRequestOption参数，用【同步】方式发起一次HTTP请求
+            </summary>
+            <typeparam name="T">返回值的类型参数</typeparam>
+            <param name="option">HttpRequestOption的实例，用于描述请求参数</param>
+            <returns>返回服务端的调用结果，并转换成指定的类型</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.ClientExtensions.SendAsync``1(ClownFish.Mvc.Client.HttpOption)">
+            <summary>
+            根据指定的HttpRequestOption参数，用【异步】方式发起一次HTTP请求
+            </summary>
+            <typeparam name="T">返回值的类型参数</typeparam>
+            <param name="option">HttpRequestOption的实例，用于描述请求参数</param>
+            <returns>返回服务端的调用结果，并转换成指定的类型</returns>
+        </member>
+        <member name="T:ClownFish.Mvc.Client.HttpOption">
+            <summary>
+            表示一次HTTP请求的描述信息
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.HttpOption.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.HttpOption.CheckInput">
+            <summary>
+            检查传入的属性是否存在冲突的设置
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.HttpOption.FromRawText(System.String)">
+            <summary>
+            根据原始请求信息文本构建 HttpRequestOption 对象（格式可参考Fiddler的Inspectors标签页内容）
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpOption.Url">
+            <summary>
+            URL地址（建议查询字符串参数在Data属性中指定，此处只指定文件路径即可）
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpOption.OriginalUrl">
+            <summary>
+            原始的URL。
+            当GET请求时会根据Data属性重新计算URL属性，为了能让HttpOption第二次正常使用，所以设计这个属性来恢复URL属性。
+            在HttpWebRequest后，就可以使用这个属性来恢复原始的URL属性。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpOption.Method">
+            <summary>
+            HTTP请求的方法，例如： GET, POST
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpOption.Headers">
+            <summary>
+            请求头列表
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpOption.Data">
+            <summary>
+            需要提交的数据（与 $.ajax()方法的 Data 属性含义类似），
+            可指定一个FormDataCollection实例，或者一个 IDictionary实例，或者一个匿名对象实例
+            如果是GET请求，数据会自动转变化查询字参数，如果是POST，则随请求体一起发送
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpOption.Format">
+            <summary>
+            数据的序列化方式。
+            注意：不包含请求体的请求，不需要指定这个属性，例如：GET , HEAD
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpOption.ContentType">
+            <summary>
+            框架自动计算，不需要调用者指定，避免产生错误
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpOption.MustQueryString">
+            <summary>
+            根据Method属性，返回是不是必须以查询字符串形式提交数据
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpOption.Cookie">
+            <summary>
+            Cookie容器
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpOption.Credentials">
+            <summary>
+            获取或设置请求的身份验证信息。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpOption.Timeout">
+            <summary>
+            获取或设置 GetResponse 和 GetRequestStream 方法的超时值（以毫秒为单位）。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpOption.SetRequestAction">
+            <summary>
+            指定一个委托，用于在发送请求前设置HttpWebRequest的其它属性
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpOption.AfterGetResponseAction">
+            <summary>
+            指定一个委托，用于在请求接收后调用，可获取请求头相关信息
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.HttpHeaderCollection">
+            <summary>
+            HTTP头的存储集合
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.HttpHeaderCollection.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.HttpHeaderCollection.Add(System.String,System.String)">
+            <summary>
+            增加一个键值对
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.HttpHeaderCollection.Remove(System.String)">
+            <summary>
+            根据指定的名称删除键值列表元素
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="P:ClownFish.Mvc.HttpHeaderCollection.Item(System.String)">
+            <summary>
+            索引器，根据名称访问集合
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.HttpFile">
+            <summary>
+            表示一个符合HTTP协议的上传文件
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.HttpFile.ContentLength">
+            <summary>
+            获取上载文件的大小（以字节为单位）。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.HttpFile.ContentType">
+            <summary>
+            获取客户端发送的文件的 MIME 内容类型。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.HttpFile.FileName">
+            <summary>
+            获取客户端上的文件的完全限定名称。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.HttpFile.FileBody">
+            <summary>
+            获取上传文件的内容
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Http304Result">
+            <summary>
+            实现一个HTTP 304的执行结果。
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.IActionResult">
+            <summary>
+            表示Action结果的接口
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.IActionResult.Ouput(System.Web.HttpContext)">
+            <summary>
+            执行输出操作
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.Http304Result.Ouput(System.Web.HttpContext)">
+            <summary>
+            实现IActionResult接口，执行输出操作
+            </summary>
+            <param name="context">HttpContext实例</param>
+        </member>
+        <member name="T:ClownFish.Mvc.Http404Result">
+            <summary>
+            实现一个HTTP 404的执行结果。
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Http404Result.Ouput(System.Web.HttpContext)">
+            <summary>
+            实现IActionResult接口，执行输出操作
+            </summary>
+            <param name="context">HttpContext实例</param>
+        </member>
+        <member name="T:ClownFish.Mvc.HttpCacheResult">
+            <summary>
+            表示需要设置HTTP缓存头的执行结果
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.HttpCacheResult.#ctor(System.Object,System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="result"></param>
+            <param name="maxAge"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.HttpCacheResult.#ctor(System.Object,System.Int32,System.DateTime)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="result"></param>
+            <param name="maxAge"></param>
+            <param name="lastModified"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.HttpCacheResult.Ouput(System.Web.HttpContext)">
+            <summary>
+            输出结果
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="P:ClownFish.Mvc.HttpCacheResult.Result">
+            <summary>
+            要包装的Action执行结果
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.HttpCacheResult.MaxAge">
+            <summary>
+            缓存持续时间，单位：秒
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.HttpCacheResult.LastModified">
+            <summary>
+            设置此属性用于调用 SetLastModified 方法。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.HttpCacheResult.ETag">
+            <summary>
+            设置此属性用于调用 SetETag 方法。
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.StreamResult">
+            <summary>
+            包含流的Action执行结果，通常用于实现文件下载。
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.StreamResult.#ctor(System.Byte[])">
+            <summary>
+            构造函数
+            </summary>
+            <param name="buffer">文件内容的字节数组</param>
+        </member>
+        <member name="M:ClownFish.Mvc.StreamResult.#ctor(System.Byte[],System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="buffer">文件内容的字节数组</param>
+            <param name="contentType">文档类型，允许为空</param>
+        </member>
+        <member name="M:ClownFish.Mvc.StreamResult.#ctor(System.Byte[],System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="buffer">文件内容的字节数组</param>
+            <param name="contentType">文档类型，允许为空</param>
+            <param name="filename">下载对话框显示的文件名</param>
+        </member>
+        <member name="M:ClownFish.Mvc.StreamResult.Ouput(System.Web.HttpContext)">
+            <summary>
+            实现IActionResult接口，执行输出
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.StreamResult.GetFileNameHeader(System.Web.HttpContext,System.String)">
+            <summary>
+            根据指定的文件名，按照HTTP相关规范计算用于响应头可以接受的字符串
+            </summary>
+            <param name="context"></param>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.TextResult">
+            <summary>
+            表示一个纯文本Action的返回结果
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.TextResult.#ctor(System.Object)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="model">需要输出的数据对象</param>
+        </member>
+        <member name="M:ClownFish.Mvc.TextResult.#ctor(System.Object,System.String)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="model">需要输出的数据对象</param>
+            <param name="contentType">需要设置的 ContentType 标头</param>
+        </member>
+        <member name="P:ClownFish.Mvc.TextResult.Model">
+            <summary>
+            需要输出的数据对象
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.TextResult.ContentType">
+            <summary>
+            需要设置的 ContentType 标头
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.XmlResult">
+            <summary>
+            表示Action的执行结果为XML
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.XmlResult.#ctor(System.Object)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="model">需要以XML形式输出的数据对象</param>
+        </member>
+        <member name="P:ClownFish.Mvc.XmlResult.Model">
+            <summary>
+            需要以XML形式输出的数据对象
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.ControllerAssemblyAttribute">
+            <summary>
+            指示包含Controller的程序集
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.AuthorizeAttribute">
+            <summary>
+            用于验证用户身份的修饰属性
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.AuthorizeAttribute.AuthenticateRequest(System.Web.HttpContext)">
+            <summary>
+            执行授权检查
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ClownFish.Mvc.AuthorizeAttribute.Users">
+            <summary>
+            允许访问的用户列表，用逗号分隔。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.AuthorizeAttribute.Roles">
+            <summary>
+            允许访问的角色列表，用逗号分隔。
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.ContextDataAttribute">
+            <summary>
+            用于根据指定的属性名表达式直接从HttpContext对象中求值。
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.ContextDataAttribute.#ctor(System.String)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="expression"></param>
+        </member>
+        <member name="P:ClownFish.Mvc.ContextDataAttribute.Expression">
+            <summary>
+            用于求值的属性名，也可以是一个表达式。
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.HttpValueIgnoreAttribute">
+            <summary>
+            用于指示不要用Http请求中的内容给一些实体成员赋值。
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.PageUrlAttribute">
+            <summary>
+            用于描述一个Action可以处理哪些请求路径。
+            注意：这个Attribute可以多次使用，表示可以处理多个请求路径。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.PageUrlAttribute.Url">
+            <summary>
+            指示可以处理的请求路径。比如："/abc.aspx" 
+            （Ajax请求【不使用】此参数）
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.PageRegexUrlAttribute">
+            <summary>
+            继承于PageUrlAttribute，指示Url是一个正则表达式
+            // 注意：正则表达式的匹配的次序未知。
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.NamespaceMapAttribute">
+            <summary>
+            命名空间映射标记。
+            注意：为了规范代码，在一个应用程序中的包含相同ShortName属性值的NamespaceMapAttribute实例不允许重复，
+            所以不要使用与程序集不匹配的命名空间。
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.NamespaceMapAttribute.#ctor(System.String,System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="namespaceString">命名空间的名字字符串</param>
+            <param name="shortName">映射之后的短名</param>
+        </member>
+        <member name="P:ClownFish.Mvc.NamespaceMapAttribute.Namespace">
+            <summary>
+            命名空间的名字字符串
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.NamespaceMapAttribute.ShortName">
+            <summary>
+            映射之后的短名
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.CacheResult`1">
+            <summary>
+            缓存结果项的包装类
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:ClownFish.Mvc.CacheResult`1.Result">
+            <summary>
+            缓存结果项
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.FileDependencyManager`1">
+            <summary>
+            文件缓存依赖的管理类
+            </summary>
+            <typeparam name="T">缓存的数据类型</typeparam>
+        </member>
+        <member name="M:ClownFish.Mvc.FileDependencyManager`1.#ctor(System.Func{System.String[],`0},System.String[])">
+            <summary>
+            构造方法
+            </summary>
+            <param name="func"></param>
+            <param name="files"></param>
+        </member>
+        <member name="P:ClownFish.Mvc.FileDependencyManager`1.Result">
+            <summary>
+            缓存结果
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Config.OutputCacheConfig">
+            <summary>
+            OutputCacheConfig
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.Config.OutputCacheConfig.Settings">
+            <summary>
+            OutputCacheSetting节点列表
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Config.OutputCacheSetting">
+            <summary>
+            OutputCacheSetting
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.OutputCacheAttribute">
+            <summary>
+            用于给Action返回结果指定输出缓存的修饰属性
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.OutputCacheAttribute.CacheProfile">
+            <summary>
+            获取或设置 OutputCacheProfile 名称，该名称与输出缓存项的设置关联。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.OutputCacheAttribute.Duration">
+            <summary>
+            取或设置缓存项要保留在输出缓存中的时间。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.OutputCacheAttribute.Location">
+            <summary>
+            获取或设置一个值，该值确定缓存项的位置。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.OutputCacheAttribute.NoStore">
+            <summary>
+            获取或设置一个值，该值确定是否设置了 HTTP Cache-Control: no-store 指令。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.OutputCacheAttribute.SqlDependency">
+            <summary>
+            获取或设置缓存项依赖的一组数据库和表名称对。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.OutputCacheAttribute.VaryByContentEncoding">
+            <summary>
+            获取或设置用于改变缓存项的一组逗号分隔的字符集（内容编码）。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.OutputCacheAttribute.VaryByCustom">
+            <summary>
+            获取输出缓存用来改变缓存项的自定义字符串列表。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.OutputCacheAttribute.VaryByHeader">
+            <summary>
+            获取或设置用于改变缓存项的一组逗号分隔的标头名称。标头名称标识与请求关联的 HTTP 标头。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.OutputCacheAttribute.VaryByParam">
+            <summary>
+            获取查询字符串或窗体 POST 参数的逗号分隔列表，该列表由输出缓存用来改变缓存项。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Config.OutputCacheSetting.FilePath">
+            <summary>
+            需要缓存的文件路径
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.SetOutputCacheModule">
+            <summary>
+            SetOutputCacheModule
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.SetOutputCacheModule.Init(System.Web.HttpApplication)">
+            <summary>
+            Init
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.SetOutputCacheModule.Dispose">
+            <summary>
+            Dispose
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Client.FormDataCollection">
+            <summary>
+            表示HTTP表单的数据集合（key=value ）
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.FormDataCollection.Add(System.String,System.String)">
+            <summary>
+            往集合中添加一个键值对（允许key重复）
+            </summary>
+            <param name="key">数据项的名称</param>
+            <param name="value">数据值</param>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.FormDataCollection.Add(System.String,System.Object)">
+            <summary>
+            往集合中添加一个键值对（允许key重复）
+            </summary>
+            <param name="key">数据项的名称</param>
+            <param name="value">数据值</param>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.FormDataCollection.ToString">
+            <summary>
+            输出集合数据为 "application/x-www-form-urlencoded" 格式。
+            注意：1、忽略上传文件
+                 2、每次调用都会重新计算（因此尽量避免重复调用）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.FormDataCollection.WriteToStream(System.IO.Stream,System.Net.HttpWebRequest,System.Text.Encoding)">
+            <summary>
+            将收集的表单数据写入流
+            </summary>
+            <param name="stream">Stream实例，用于写入</param>
+            <param name="request">HttpWebRequest实例，用于上传文件时指定ContentType属性</param>
+            <param name="encoding">字符编码方式</param>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.FormDataCollection.HasFile">
+            <summary>
+            是否包含上传文件
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Client.HttpClient">
+            <summary>
+            一个用于发送HTTP请求的客户端
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.TypeExtend.BaseEventObject">
+            <summary>
+            可用于外部事件订阅的基类，继承这个类型后，就可以从其它类型中订阅当前类型的实例事件。
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.HttpClient.GetResult``1(ClownFish.Mvc.Client.HttpOption)">
+            <summary>
+            以【同步】方式发起HTTP请求，并获取服务端的返回结果
+            </summary>
+            <typeparam name="T">返回服务端的调用结果，并转换成指定的类型</typeparam>
+            <param name="option">HttpRequestOption的实例，用于描述请求参数</param>
+            <returns>返回服务端的调用结果，并转换成指定的类型</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.HttpClient.GetResultAsync``1(ClownFish.Mvc.Client.HttpOption)">
+            <summary>
+            以【异步】方式发起HTTP请求，并获取服务端的返回结果
+            </summary>
+            <typeparam name="T">返回服务端的调用结果，并转换成指定的类型</typeparam>
+            <param name="option">HttpRequestOption的实例，用于描述请求参数</param>
+            <returns>返回服务端的调用结果，并转换成指定的类型</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.HttpClient.TryReadResponseException(System.Net.WebException)">
+            <summary>
+            当请求过程中发生HTTP异常时，可以尝试从WebException实例中读取服务端响应文本
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.HttpClient.Dispose">
+            <summary>
+            实现IDisposable接口
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.HttpClient.Send``1(System.String,System.Object,ClownFish.Mvc.SerializeFormat)">
+            <summary>
+            根据指定的URL以及提交数据，用【同步】方式发起一次HTTP请求
+            </summary>
+            <typeparam name="T">返回值的类型参数</typeparam>
+            <param name="url">要访问的URL地址</param>
+            <param name="obj">要提交的数据对象</param>
+            <param name="format">数据对象在传输过程中采用的序列化方式</param>
+            <returns>返回服务端的调用结果，并转换成指定的类型</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.HttpClient.SendAsync``1(System.String,System.Object,ClownFish.Mvc.SerializeFormat)">
+            <summary>
+            根据指定的URL以及提交数据，用【同步】方式发起一次HTTP请求
+            </summary>
+            <typeparam name="T">返回值的类型参数</typeparam>
+            <param name="url">要访问的URL地址</param>
+            <param name="obj">要提交的数据对象</param>
+            <param name="format">数据对象在传输过程中采用的序列化方式</param>
+            <returns>返回服务端的调用结果，并转换成指定的类型</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.HttpClient.Send``1(ClownFish.Mvc.Client.HttpOption)">
+            <summary>
+            根据指定的HttpRequestOption参数，用【同步】方式发起一次HTTP请求
+            </summary>
+            <typeparam name="T">返回值的类型参数</typeparam>
+            <param name="option">HttpRequestOption的实例，用于描述请求参数</param>
+            <returns>返回服务端的调用结果，并转换成指定的类型</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Client.HttpClient.SendAsync``1(ClownFish.Mvc.Client.HttpOption)">
+            <summary>
+            根据指定的HttpRequestOption参数，用【异步】方式发起一次HTTP请求
+            </summary>
+            <typeparam name="T">返回值的类型参数</typeparam>
+            <param name="option">HttpRequestOption的实例，用于描述请求参数</param>
+            <returns>返回服务端的调用结果，并转换成指定的类型</returns>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpClient.Request">
+            <summary>
+            HttpWebRequest实例引用
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpClient.Response">
+            <summary>
+            HttpWebResponse实例引用，只有在发起HTTP调用之后才会被赋值。
+            </summary>
+        </member>
+        <member name="E:ClownFish.Mvc.Client.HttpClient.OnBeforeSendRequest">
+            <summary>
+            HttpClient在发送请求前的事件，可以在这里调整HttpWebRequest的必要属性
+            </summary>
+        </member>
+        <member name="E:ClownFish.Mvc.Client.HttpClient.OnBeforeCreateRequest">
+            <summary>
+            HttpWebRequest前将会引发此事件，提供最后一个修改请求参数的机会。
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Client.HttpClient.BeforeSendRequestEventArgs">
+            <summary>
+            请求发送前的事件参数类型
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpClient.BeforeSendRequestEventArgs.Request">
+            <summary>
+            HttpWebRequest实例
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpClient.BeforeSendRequestEventArgs.Option">
+            <summary>
+            HttpOption实例
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Client.HttpClient.BeforeCreateRequestEventArgs">
+            <summary>
+            创建请求前的事件参数类型
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Client.HttpClient.BeforeCreateRequestEventArgs.Option">
+            <summary>
+            HttpOption实例
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.MvcRuntime">
+            <summary>
+            ClownFish.Mvc在运行时与底层交互的类型封装，重写这些方法可支持友好的单元测试
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.MvcRuntime.GetWebSitePath">
+            <summary>
+            获取网站部署目录
+            等效于：HttpRuntime.AppDomainAppPath;
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.MvcRuntime.GetPhysicalPath(System.String)">
+            <summary>
+            根据指定的站内相对路径，计算文件在磁盘中的物理存放路径（可用于替代 Server.MapPath）
+            等效于：Path.Combine(HttpRuntime.AppDomainAppPath, filePath);
+            </summary>
+            <param name="filePath">相对网站根目录的文件名，不能以 / 开头</param>
+            <returns></returns>
+        </member>
+        <member name="P:ClownFish.Mvc.MvcRuntime.Instance">
+            <summary>
+            MvcRuntime的实例
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.NameValue">
+            <summary>
+            表示一组用于HTTP传输的 【名称/值】 对。
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.NameValue.ToString">
+            <summary>
+            ToString
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ClownFish.Mvc.NameValue.Name">
+            <summary>
+            键名
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.NameValue.Value">
+            <summary>
+            键值
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Config.RouteTableConfig">
+            <summary>
+            MVC路径表的配置文件
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.Config.RouteTableConfig.Routes">
+            <summary>
+            所有路由规则列表
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Config.Route">
+            <summary>
+            表示一条路由配置规则
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Config.Route.Name">
+            <summary>
+            路由名称，可选项
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Config.Route.Url">
+            <summary>
+            路由URL，可包含参数占位符
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Config.Route.Namespace">
+            <summary>
+            与URL匹配的Controller的命名空间，可选项
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Config.Route.Controller">
+            <summary>
+            与URL匹配的Controller的名称，可选项
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Config.Route.Action">
+            <summary>
+            与URL匹配的Action名称，可选项
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.SerializeFormat">
+            <summary>
+            指示Action结果的序列化方式
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.SerializeFormat.TEXT">
+            <summary>
+            直接调用 ToString() 方法
+            匹配标头："text/plain"
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.SerializeFormat.JSON">
+            <summary>
+            采用 JSON.NET 序列化为 JSON 字符串
+            匹配标头："application/json"
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.SerializeFormat.JSON2">
+            <summary>
+            采用 JSON.NET 序列化为 JSON 字符串，并尽量输出类型信息，可用于服务端之间或者客户端是C#的反序列化。
+            匹配标头："application/json"
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.SerializeFormat.XML">
+            <summary>
+            序列化成 XML 字符串
+            匹配标头："application/xml"
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.SerializeFormat.FORM">
+            <summary>
+            采用 "application/x-www-form-urlencoded" 方式序列化
+            匹配标头："application/x-www-form-urlencoded"
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.SerializeFormat.AUTO">
+            <summary>
+            自动根据请求头去响应，用于服务端响应。
+            客户端发起请求时，需要指定 Request.Headers["Result-Format"]，否则按文本输出
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.SingletonObject`1">
+            <summary>
+            线程安全的单例模式
+            </summary>
+            <typeparam name="T">数据的参数类型</typeparam>
+        </member>
+        <member name="T:ClownFish.Mvc.Singleton`1">
+            <summary>
+            线程安全的单例模式
+            </summary>
+            <typeparam name="T">数据的参数类型</typeparam>
+        </member>
+        <member name="M:ClownFish.Mvc.Singleton`1.#ctor(System.Func{`0})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="getValue">获取数据的委托</param>
+        </member>
+        <member name="P:ClownFish.Mvc.Singleton`1.Value">
+            <summary>
+            返回缓存的单例结果
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.SingletonObject`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.ValidateRequestMode">
+            <summary>
+            定义针对请求的安全检查模式
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.ValidateRequestMode.Inherits">
+            <summary>
+            从web.config中继承设置
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.ValidateRequestMode.Enable">
+            <summary>
+            打开安全检查
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.ValidateRequestMode.Disable">
+            <summary>
+            关闭安全检查
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Config.MvcConfig">
+            <summary>
+            表示ClownFish.Mvc的配置信息类型
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Config.MvcConfig.Pipeline">
+            <summary>
+            Pipeline相关的配置节
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Config.MvcConfig.Action">
+            <summary>
+            Action相关的配置节
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Config.MvcConfig.Instance">
+            <summary>
+            ClownFish.MvcConfiguration实例的引用（已缓存对象，具有文件更新后自动刷新功能）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.Config.PipelineSectionElement">
+            <summary>
+            Pipeline相关的配置节
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Config.PipelineSectionElement.PostDeserialize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Config.PipelineSectionElement.Http404PagePath">
+            <summary>
+            404错误页的模板页面路径
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Config.ActionSectionElement">
+            <summary>
+            Action相关的配置节
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Config.ActionSectionElement.JsonpCallback">
+            <summary>
+            JSONP的回调方法的参数名称，
+            如果不希望启用JSONP，请设置为 null ，
+            默认值："callback" （与 jQuery 保持一致）
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.DebugHelper">
+            <summary>
+            提供DEBUG信息输出的工具类
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.DebugHelper.WriteHeader(System.Web.HttpContext,System.String)">
+            <summary>
+            将DEBUG信息写到响应头，格式："ThreadId, text"
+            </summary>
+            <param name="context"></param>
+            <param name="text"></param>
+        </member>
+        <member name="T:ClownFish.Mvc.Debug404.DiagnoseResult">
+            <summary>
+            404错误的诊断结果
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Debug404.DiagnoseResult.#ctor">
+            <summary>
+            构造方法
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Debug404.DiagnoseResult.ErrorMessages">
+            <summary>
+            所有错误消息描述。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Debug404.DiagnoseResult.UrlActionInfo">
+            <summary>
+            从当前请求URL解析出来的UrlActionInfo实例
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Debug404.DiagnoseResult.AssemblyList">
+            <summary>
+            所有包含Action的程序集列表
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Debug404.DiagnoseResult.PageUrlTestResult">
+            <summary>
+            所有PageUrlAttribute的测试结果
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Debug404.DiagnoseResult.PageRegexUrlTestResult">
+            <summary>
+            所有PageRegexUrlAttribute的测试结果
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Debug404.DiagnoseResult.NamespaceMapTestResult">
+            <summary>
+            所有NamespaceMapAttribute的查找结果
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Debug404.DiagnoseResult.RouteTestResult">
+            <summary>
+            所有路由记录的测试结果
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Debug404.DiagnoseResult.ControllerTestResult">
+            <summary>
+            所有Controller类型的匹配结果
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Debug404.DiagnoseResult.ControllerType">
+            <summary>
+            可以匹配的Controller类型
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Debug404.DiagnoseResult.ActionTestResult">
+            <summary>
+            匹配Controller类型的所有Action测试结果
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Debug404.Http404PageHandler">
+            <summary>
+            404错误的描述Handler
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Debug404.Http404PageHandler.ProcessRequest(System.Web.HttpContext)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="context">HttpContext实例</param>
+        </member>
+        <member name="P:ClownFish.Mvc.Debug404.Http404PageHandler.DiagnoseResult">
+            <summary>
+            DiagnoseResult实例
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Debug404.Http404PageHandler.IsReusable">
+            <summary>
+            指示当前HttpHanlder是否可重用（固定值：false）
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Debug404.TestResult">
+            <summary>
+            表示一个404错误发生时测试结果
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Debug404.TestResult.Text">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Debug404.TestResult.IsPass">
+            <summary>
+            是否测试通过
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Debug404.TestResult.Reason">
+            <summary>
+            测试不通过的原因
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.HttpExtensions.GetRealVirtualPath(System.Web.HttpContext)">
+            <summary>
+            获取实际的虚拟路径，如果网站部署在虚拟目录中，将去除虚拟目录的顶层目录名。
+            </summary>
+            <param name="context">HttpContext实例的引用</param>
+            <returns>去除虚拟目录后的实际虚拟路径。</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.HttpExtensions.TryGetJsonpCallback(System.Web.HttpContext,System.String)">
+            <summary>
+            尝试判断是不是JSONP请求，并获取回调方法名称
+            </summary>
+            <param name="context"></param>
+            <param name="callbackParameterName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.FrameworkExt">
+            <summary>
+            定义一些用于扩展框架的注入方法
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.FrameworkExt.RegisterHttpDataConvert``1(System.Func{System.Web.HttpContext,System.Reflection.ParameterInfo,``0})">
+            <summary>
+            注册用于转换HTTP请求数据到特定类型的转换器（不适用于序列化场景）
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="func"></param>
+        </member>
+        <member name="T:ClownFish.Mvc.Debug404.Http404DebugModule">
+            <summary>
+            用于诊断404错误的HTTP模块
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Debug404.Http404DebugModule.Init(System.Web.HttpApplication)">
+            <summary>
+            Init
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.Debug404.Http404DebugModule.TryGetDiagnoseResult(System.Web.HttpContext)">
+            <summary>
+            尝试从HttpContext实例中获取关联的DiagnoseResult实例
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Debug404.Http404DebugModule.TryGetHttp404PageHandler(System.Web.HttpContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.BaseWebEventArgs">
+            <summary>
+            ActionExecutor中所有事件参数的基类
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.BaseWebEventArgs.HttpContext">
+            <summary>
+            HttpContext实例
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.BeginRequestEventArgs">
+            <summary>
+            表示进入BeginRequest阶段的事件参数类型
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.BeginRequestEventArgs.ControllerInstance">
+            <summary>
+            Controller实例
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.BeginRequestEventArgs.ActionMethod">
+            <summary>
+            Action方法的反射信息（MethodInfo实例）
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.CorsCheckEventArgs">
+            <summary>
+            表示进入CorsCheck阶段的事件参数类型
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.CorsCheckEventArgs.Origin">
+            <summary>
+            Origin请求头信息
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.CorsCheckEventArgs.ActionMethod">
+            <summary>
+            Action方法的反射信息（MethodInfo实例）
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.CorsCheckEventArgs.IsForbidden">
+            <summary>
+            是否禁止访问，如果在事件中设置为 true ，将禁止本次AJAX的跨域访问。
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.AuthorizeCheckEventArgs">
+            <summary>
+            表示进入AuthorizeCheck阶段的事件参数类型
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.AuthorizeCheckEventArgs.Attribute">
+            <summary>
+            Action方法上的AuthorizeAttribute实例
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.AuthorizeCheckEventArgs.ActionMethod">
+            <summary>
+            Action方法的反射信息（MethodInfo实例）
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.GetActionParametersEventArgs">
+            <summary>
+            表示进入GetActionParameters阶段的事件参数类型
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.GetActionParametersEventArgs.ActionMethod">
+            <summary>
+            Action方法的反射信息（MethodInfo实例）
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.GetActionParametersEventArgs.Parameters">
+            <summary>
+            获取到的参数值数组
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.ExecuteActionEventArgs">
+            <summary>
+            表示进入 BeforeExceute / AfterExecute 阶段的事件参数类型
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.ExecuteActionEventArgs.ControllerInstance">
+            <summary>
+            Controller实例
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.ExecuteActionEventArgs.ActionMethod">
+            <summary>
+            Action方法的反射信息（MethodInfo实例）
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.ExecuteActionEventArgs.Parameters">
+            <summary>
+            获取到的参数值数组
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.ExecuteActionEventArgs.ExecuteResult">
+            <summary>
+            执行结果（仅对 AfterExecuteAction 事件有效）
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.OutputResultEventArgs">
+            <summary>
+            表示进入设置OutputCache阶段的事件参数类型
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.OutputResultEventArgs.ControllerInstance">
+            <summary>
+            Controller实例
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.OutputResultEventArgs.ActionMethod">
+            <summary>
+            Action方法的反射信息（MethodInfo实例）
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.OutputResultEventArgs.ExecuteResult">
+            <summary>
+            执行结果
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.BaseController">
+            <summary>
+            所有控制器的基类
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.BaseController.GetCookie(System.String)">
+            <summary>
+            从当前请求中读取Cookie
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.BaseController.AddCookie(System.Web.HttpCookie)">
+            <summary>
+            写入一个Cookie到当前响应输出
+            </summary>
+            <param name="cookie"></param>
+        </member>
+        <member name="P:ClownFish.Mvc.BaseController.HttpContext">
+            <summary>
+            HTTP上下文相关对象（HttpContextBase的实例）
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.BaseController.MvcRuntime">
+            <summary>
+            获取 MvcRuntime 实例的引用
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.MvcRouteHandler">
+            <summary>
+            实现 ASP.NET Routing IRouteHandler的路由处理器，可供UrlRoutingModule使用
+            </summary>
+            <example>
+            RouteTable.Routes.Add(new Route("routing/{namespace}/{controller}/{action}", new MvcRouteHandler()));
+            </example>
+        </member>
+        <member name="M:ClownFish.Mvc.MvcRouteHandler.GetHttpHandler(System.Web.Routing.RequestContext)">
+            <summary>
+            实现IRouteHandler接口
+            </summary>
+            <param name="requestContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.MvcRoutingModule">
+            <summary>
+            比 UrlRoutingModule 3.5版本更简单的RoutingModule，而且支持404错误诊断。
+            【注意】：MvcRoutingModule 不能和 ASP.NET 的 UrlRoutingModule 同时启用。
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.MvcRoutingModule.InitRouting">
+            <summary>
+            给 ASP.NET RouteTable 注册路由规则
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.MvcRoutingModule.Init(System.Web.HttpApplication)">
+            <summary>
+            实现IHttpModule接口
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.MvcRoutingModule.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.TaskAsyncActionHandler">
+            <summary>
+            支持异步的 HttpHandler
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.UrlParser">
+            <summary>
+            URL解析器，用于从URL中提取基本的UrlActionInfo信息
+            注意：这个类型的实例会被静态变量引用，因此要求是线程安全的。
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.UrlParser.GetUrlActionInfo(System.Web.HttpContext,System.String)">
+            <summary>
+            从指定的请求中提取UrlActionInfo
+            </summary>
+            <param name="context"></param>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.Proxy.ProxyTransferHandler">
+            <summary>
+            用于服务端代理转发请求的处理器
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.Proxy.ProxyTransferHandler.TargetUrlKeyName">
+            <summary>
+            用于【外部模块】给 ProxyTransferHandler 传递目标网址
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Proxy.ProxyTransferHandler.GetTransferAddress(System.Web.HttpContext)">
+            <summary>
+            获取需要转发的目标地址
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Proxy.ProxyTransferHandler.CreateWebRequest(System.String,System.Web.HttpContext)">
+            <summary>
+            创建 HttpWebRequest 对象
+            </summary>
+            <param name="destAddress">需要转发的目标地址</param>
+            <param name="context">HttpContext实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Proxy.ProxyTransferHandler.ProcessRequestAsync(System.Web.HttpContext)">
+            <summary>
+            以异步方式执行HttpHanlder（基类方法重写）
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Proxy.ProxyTransferHandler.CopyRequestHeaders(System.Web.HttpContext,System.Net.HttpWebRequest)">
+            <summary>
+            复制请求头
+            </summary>
+            <param name="context"></param>
+            <param name="webRequest"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.Proxy.ProxyTransferHandler.SetRequestHeader(System.Web.HttpContext,System.Net.HttpWebRequest,System.String,System.String)">
+            <summary>
+            设置请求头
+            </summary>
+            <param name="context"></param>
+            <param name="webRequest"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.Proxy.ProxyTransferHandler.CopyResponseHeaders(System.Web.HttpContext,System.Net.HttpWebResponse)">
+            <summary>
+            复制响应头
+            </summary>
+            <param name="context"></param>
+            <param name="webResponse"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.Proxy.ProxyTransferHandler.SetResponseHeader(System.Web.HttpContext,System.Net.HttpWebResponse,System.String,System.String)">
+            <summary>
+            设置响应头
+            </summary>
+            <param name="context"></param>
+            <param name="webResponse"></param>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:ClownFish.Mvc.Proxy.ReverseProxyModule">
+            <summary>
+            一个简单的反向代理的HTTP模块
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.Proxy.ReverseProxyModule.s_ProxySiteCookieName">
+            <summary>
+            常量字符串：代理站点的Cookie名字
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Proxy.ReverseProxyModule.Init(System.Web.HttpApplication)">
+            <summary>
+            实现 IHttpModule.Init 方法
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.Proxy.ReverseProxyModule.GetProxySiteAddress(System.Web.HttpApplication)">
+            <summary>
+            获取代理目标的站点地址
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Proxy.ReverseProxyModule.CreateProxySiteCookie(System.String)">
+            <summary>
+            生成可供ReverseProxyModule读取的代理站点Cookie
+            </summary>
+            <param name="siteAddress"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.Proxy.ReverseProxyModule.Dispose">
+            <summary>
+            实现 IHttpModule.Dispose 方法
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Reflection.ControllerRecognizer">
+            <summary>
+            Controller分类识别器（如果希望修改判断规则，可以继承并重写相关方法。
+            注意：这个类型的实例会被静态变量引用，因此要求是线程安全的。
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Reflection.ControllerRecognizer.IsPageController(System.Type)">
+            <summary>
+            判断指定的类型是否为页面控制器
+            （使用PageUrlAttribute，PageRegexUrlAttribute定位Action）
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Reflection.ControllerRecognizer.IsServiceController(System.Type)">
+            <summary>
+            判断指定的类型是否为服务控制器
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Reflection.ControllerRecognizer.EnsureServicePostfix(System.String)">
+            <summary>
+            确保指定的类型名称是一个Service类型，
+            处理逻辑：如果不是以Service结尾（区分大小写），就添加Service，反之则不处理。
+            </summary>
+            <param name="typeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Reflection.ControllerRecognizer.GetServiceFullName(ClownFish.Mvc.UrlActionInfo)">
+            <summary>
+            根据UrlActionInfo收集到的命名空间及类名计算ServiceController的全名
+            如果希望在URL中使用简短或者缩写的命名空间，可以重写这个方法
+            </summary>
+            <param name="info">UrlActionInfo的实例</param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.JsonHelper">
+            <summary>
+            JSON序列化的工具类
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.JsonHelper.ToJson(System.Object)">
+            <summary>
+            将一个对象序列化为JSON字符串。
+            </summary>
+            <param name="obj">要序列化的对象</param>
+            <returns>序列化得到的JSON字符串</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.JsonHelper.ToJson(System.Object,System.Boolean)">
+            <summary>
+            将一个对象序列化为JSON字符串。
+            </summary>
+            <param name="obj">要序列化的对象</param>
+            <param name="keepTypeInfo">尽量在序列化过程中保留类型信息（Newtonsoft.Json可支持）</param>
+            <returns>序列化得到的JSON字符串</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.JsonHelper.FromJson``1(System.String)">
+            <summary>
+            将一个JSON字符串反序列化为对象
+            </summary>
+            <typeparam name="T">对象的类型参数</typeparam>
+            <param name="json">JSON字符串</param>
+            <returns>反序列化得到的结果</returns>
+        </member>
+        <member name="T:ClownFish.Mvc.StringExtensions">
+            <summary>
+            用于UI输出方面的常用字符串扩展
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.StringExtensions.HtmlEncode(System.String)">
+            <summary>
+            将字符串转换为 HTML 编码的字符串。
+            </summary>
+            <param name="str">要编码的字符串。</param>
+            <returns>一个已编码的字符串。</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.StringExtensions.HtmlAttributeEncode(System.String)">
+            <summary>
+            将字符串最小限度地转换为 HTML 编码的字符串。
+            </summary>
+            <param name="str">要编码的字符串。</param>
+            <returns>一个已编码的字符串。</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.StringExtensions.IsSame(System.String,System.String)">
+            <summary>
+            判断二个字符串是否相等，忽略大小写的比较方式。
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.StringExtensions.SplitTrim(System.String,System.Char[])">
+            <summary>
+            等效于 string.Split(charSeparators, StringSplitOptions.RemoveEmptyEntries)
+            且为每个拆分后的结果又做了Trim()操作。
+            </summary>
+            <param name="str">要拆分的字符串</param>
+            <param name="separator">分隔符</param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.StringExtensions.ToTitleCase(System.String)">
+            <summary>
+            将字符串的首个英文字母大写
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.UiHelper">
+            <summary>
+            UI相关的工具类
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.UiHelper.RefJsFileHtml(System.String)">
+            <summary>
+            生成一个引用JS文件的HTML代码，其中URL包含了文件的最后更新时间。
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.UiHelper.RefJsFileHtml(System.String,System.Boolean)">
+            <summary>
+            生成引入JavaScript文件的HTML代码
+            </summary>
+            <param name="path"></param>
+            <param name="inline"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.UiHelper.RefCssFileHtml(System.String)">
+            <summary>
+            生成一个引用CSS文件的HTML代码，其中URL包含了文件的最后更新时间。
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.UiHelper.RefCssFileHtml(System.String,System.Boolean)">
+            <summary>
+            生成引入CSS文件的HTML代码
+            </summary>
+            <param name="path"></param>
+            <param name="inline"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.JsonResult">
+            <summary>
+            表示Action的执行结果为JSON
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.JsonResult.#ctor(System.Object)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="model">将要序列化的对象</param>
+        </member>
+        <member name="M:ClownFish.Mvc.JsonResult.#ctor(System.Object,System.Boolean)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="model">将要序列化的对象</param>
+            <param name="keepTypeInfo">是否在序列化时保留类型信息，可用于服务端之间的反序列化。</param>
+        </member>
+        <member name="M:ClownFish.Mvc.JsonResult.ObjectToJson(System.Object)">
+            <summary>
+            将一个对象序列化为JSON字符串
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ClownFish.Mvc.JsonResult.Model">
+            <summary>
+            需要以JSON形式输出的数据对象
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.JsonResult.KeepTypeInfo">
+            <summary>
+            是否在JSON序列化时保留类型信息
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.PageResult">
+            <summary>
+            表示一个页面结果（页面将由框架执行）
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.PageResult.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="virtualPath">页面的虚拟路径</param>
+        </member>
+        <member name="M:ClownFish.Mvc.PageResult.#ctor(System.String,System.Object)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="virtualPath">页面的虚拟路径</param>
+            <param name="model">需要绑定到页面上的数据对象</param>
+        </member>
+        <member name="P:ClownFish.Mvc.PageResult.VirtualPath">
+            <summary>
+            页面的虚拟路径
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.PageResult.Model">
+            <summary>
+            需要绑定到页面上的数据对象
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.RedirectResult">
+            <summary>
+            表示一个重定向的结果
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.RedirectResult.#ctor(System.String)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="url">需要重定向的目标地址</param>
+        </member>
+        <member name="P:ClownFish.Mvc.RedirectResult.Url">
+            <summary>
+            需要重定向的目标地址
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.UcResult">
+            <summary>
+            表示一个用户控件结果（用户控件将由框架执行）
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.UcResult.#ctor(System.String)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="virtualPath">用户控件的虚拟路径</param>
+        </member>
+        <member name="M:ClownFish.Mvc.UcResult.#ctor(System.String,System.Object)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="virtualPath">用户控件的虚拟路径</param>
+            <param name="model">需要绑定到用户控件上的数据对象</param>
+        </member>
+        <member name="P:ClownFish.Mvc.UcResult.VirtualPath">
+            <summary>
+            用户控件的虚拟路径
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.UcResult.Model">
+            <summary>
+            需要绑定到用户控件上的数据对象
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.OptimizeReflection.IInvokeMethod">
+            <summary>
+            定义了通用的方法调用接口
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.OptimizeReflection.MethodInvokerFactory">
+            <summary>
+            创建IInvokeMethod实例的工厂类
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.OptimizeReflection.MethodInvokerFactory.CreateMethodInvokerWrapper(System.Reflection.MethodInfo)">
+            <summary>
+            根据指定的MethodInfo对象创建相应的IInvokeMethod实例。
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.OptimizeReflection.MethodExtensions">
+            <summary>
+            一些扩展方法，用于快速调用方法，它们都可以优化反射性能。
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.OptimizeReflection.MethodExtensions.FastInvoke(System.Reflection.MethodInfo,System.Object,System.Object[])">
+            <summary>
+            根据指定的MethodInfo以及参数数组，快速调用相关的方法。
+            </summary>
+            <param name="methodInfo"></param>
+            <param name="obj"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.OptimizeReflection.ReflectMethodBase`1">
+            <summary>
+            为了简化实现IInvokeMethod接口的抽象类，继承类只需要重写InvokeInternal方法即可。
+            </summary>
+            <typeparam name="TDelegate"></typeparam>
+        </member>
+        <member name="T:ClownFish.Mvc.OptimizeReflection.IGetValue">
+            <summary>
+            定义读属性操作的接口
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.OptimizeReflection.ISetValue">
+            <summary>
+            定义写属性操作的接口
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.OptimizeReflection.GetterSetterFactory">
+            <summary>
+            创建IGetValue或者ISetValue实例的工厂方法类
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.OptimizeReflection.GetterSetterFactory.CreatePropertyGetterWrapper(System.Reflection.PropertyInfo)">
+            <summary>
+            根据指定的PropertyInfo对象，返回对应的IGetValue实例
+            </summary>
+            <param name="propertyInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.OptimizeReflection.GetterSetterFactory.CreatePropertySetterWrapper(System.Reflection.PropertyInfo)">
+            <summary>
+            根据指定的PropertyInfo对象，返回对应的ISetValue实例
+            </summary>
+            <param name="propertyInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.OptimizeReflection.PropertyExtensions">
+            <summary>
+            一些扩展方法，用于访问属性，它们都可以优化反射性能。
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.OptimizeReflection.PropertyExtensions.FastGetValue(System.Reflection.PropertyInfo,System.Object)">
+            <summary>
+            快速调用PropertyInfo的GetValue方法
+            </summary>
+            <param name="propertyInfo"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.OptimizeReflection.PropertyExtensions.FastSetValue(System.Reflection.PropertyInfo,System.Object,System.Object)">
+            <summary>
+            快速调用PropertyInfo的SetValue方法
+            </summary>
+            <param name="propertyInfo"></param>
+            <param name="obj"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:ClownFish.Mvc.OptimizeReflection.ReflectionExtensions">
+            <summary>
+            一些扩展方法，用于反射操作，它们都可以优化反射性能。
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.OptimizeReflection.ReflectionExtensions.FastGetValue(System.Reflection.FieldInfo,System.Object)">
+            <summary>
+            用优化的方式快速读取FieldInfo
+            </summary>
+            <param name="fieldInfo"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.OptimizeReflection.ReflectionExtensions.FastSetField(System.Reflection.FieldInfo,System.Object,System.Object)">
+            <summary>
+            用优化的方式快速写FieldInfo
+            </summary>
+            <param name="fieldInfo"></param>
+            <param name="obj"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.OptimizeReflection.ReflectionExtensions.FastNew(System.Type)">
+            <summary>
+            根据指定的Type，用优化的方式快速创建实例
+            </summary>
+            <param name="instanceType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.OptimizeReflection.ReflectionExtensions.FastGetValue2(System.Reflection.PropertyInfo,System.Object)">
+            <summary>
+            用优化的方式快速读取PropertyInfo
+            </summary>
+            <param name="propertyInfo"></param>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.OptimizeReflection.ReflectionExtensions.FastSetValue2(System.Reflection.PropertyInfo,System.Object,System.Object)">
+            <summary>
+            用优化的方式快速写PropertyInfo
+            </summary>
+            <param name="propertyInfo"></param>
+            <param name="obj"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.OptimizeReflection.ReflectionExtensions.FastInvoke2(System.Reflection.MethodInfo,System.Object,System.Object[])">
+            <summary>
+            用优化的方式快速调用一个方法
+            </summary>
+            <param name="methodInfo"></param>
+            <param name="obj"></param>
+            <param name="parameters"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.ResponseWriter">
+            <summary>
+            用于直接写输出到Response的工具类
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.ResponseWriter.WritePage(System.String,System.Object,System.Boolean)">
+            <summary>
+            用指定的Page以及视图数据呈现结果（HTML），
+            然后将产生的HTML代码写入HttpContext.Current.Response
+            用户控件应从MyPageView&lt;T&gt;继承
+            </summary>
+            <param name="pageVirtualPath">Page的虚拟路径</param>
+            <param name="model">视图数据</param>
+            <param name="flush">是否需要在输出html后调用Response.Flush()</param>
+        </member>
+        <member name="M:ClownFish.Mvc.ResponseWriter.WriteUserControl(System.String,System.Object,System.Boolean)">
+            <summary>
+            用指定的用户控件以及视图数据呈现结果（HTML），
+            然后将产生的HTML代码写入HttpContext.Current.Response
+            用户控件应从MyUserControlView&lt;T&gt;继承
+            </summary>
+            <param name="ucVirtualPath">用户控件的虚拟路径</param>
+            <param name="model">视图数据</param>
+            <param name="flush">是否需要在输出html后调用Response.Flush()</param>
+        </member>
+        <member name="M:ClownFish.Mvc.ResponseWriter.WriteUserControl(System.String,System.Object,System.String,System.Boolean)">
+            <summary>
+            用指定的用户控件以及视图数据呈现结果（HTML），
+            并生成一段代码，用于将生成的HTML替换哪个DOM节点，
+            然后将所有产生的HTML代码写入HttpContext.Current.Response
+            用户控件应从MyUserControlView&lt;T&gt;继承
+            </summary>
+            <param name="ucVirtualPath">用户控件的虚拟路径</param>
+            <param name="model">视图数据</param>
+            <param name="targetDomId">需要将输出内容替换哪个DOM节点的内容</param>
+            <param name="flush">是否需要在输出html后调用Response.Flush()</param>
+        </member>
+        <member name="M:ClownFish.Mvc.ResponseWriter.WriteHtml(System.String,System.Boolean)">
+            <summary>
+            将指定的HTML代码写入HttpContext.Current.Response
+            </summary>
+            <param name="html">要写入的HTML文本</param>
+            <param name="flush">是否需要在输出html后调用Response.Flush()</param>
+        </member>
+        <member name="T:ClownFish.Mvc.BaseActionHandlerFactory">
+            <summary>
+            BaseActionHandlerFactory
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.BaseActionHandlerFactory.ParseUrl(System.Web.HttpContext,System.String)">
+            <summary>
+            解析URL，提取UrlActionInfo对象
+            </summary>
+            <param name="context"></param>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.BaseActionHandlerFactory.GetHandler(System.Web.HttpContext,System.String,System.String,System.String)">
+            <summary>
+            实现IHttpHandlerFactory接口，从当前请求获取IHttpHandler
+            </summary>
+            <param name="context"></param>
+            <param name="requestType"></param>
+            <param name="virtualPath"></param>
+            <param name="physicalPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.BaseActionHandlerFactory.ReleaseHandler(System.Web.IHttpHandler)">
+            <summary>
+            实现IHttpHandlerFactory接口
+            </summary>
+            <param name="handler"></param>
+        </member>
+        <member name="T:ClownFish.Mvc.ServiceHandlerFactory">
+            <summary>
+            响应服务请求的HttpHandlerFactory。它要求将所有Action放在一个以Service结尾的类型中。
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.ServiceHandlerFactory.ParseUrl(System.Web.HttpContext,System.String)">
+            <summary>
+            解析URL，提取UrlActionInfo对象
+            </summary>
+            <param name="context"></param>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.Reflection.ActionDescription">
+            <summary>
+            用于描述【能从URL中提取Controller，Action】的Action
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Reflection.RegexActionDescription">
+            <summary>
+            用于描述【正则表达式URL】的Action
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Reflection.MatchActionDescription">
+            <summary>
+            用于描述【与固定URL匹配】的Action
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.JsonSerializer">
+            <summary>
+            JSON序列化包装类
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.JsonSerializer.ToJson(System.Object,System.Boolean)">
+            <summary>
+            将一个对象序列化为JSON字符串。
+            </summary>
+            <param name="obj">要序列化的对象</param>
+            <param name="keepTypeInfo">尽量在序列化过程中保留类型信息（Newtonsoft.Json可支持）</param>
+            <returns>序列化得到的JSON字符串</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.JsonSerializer.FromJson``1(System.String)">
+            <summary>
+            将一个JSON字符串反序列化为对象
+            </summary>
+            <typeparam name="T">对象的类型参数</typeparam>
+            <param name="json">JSON字符串</param>
+            <returns>反序列化得到的结果</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Reflection.MetadataCache.BuildRestNamespaceDict(System.Collections.Generic.List{System.Reflection.Assembly})">
+            <summary>
+            构建命名空间映射表（从命名空间全名到别名的映射关系）
+            </summary>
+            <param name="actionAssemblyList"></param>
+        </member>
+        <member name="T:ClownFish.Mvc.TypeExtend.EventSubscriber`1">
+            <summary>
+            用于订阅BaseEventObject派生类型事件的基类，
+            如果要订阅BaseEventObject派生类型事件，必须继承此类型
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:ClownFish.Mvc.TypeExtend.EventSubscriber`1.SubscribeEvent(`0)">
+            <summary>
+            订阅事件
+            </summary>
+            <param name="instance"></param>
+        </member>
+        <member name="T:ClownFish.Mvc.TypeExtend.ExtendAssemblyAttribute">
+            <summary>
+            标记扩展程序集的修饰属性
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.TypeExtend.ExtendManager">
+            <summary>
+            用于管理扩展类型的工具类
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.TypeExtend.ExtendManager.s_typeMapDict">
+            <summary>
+            类型与继承类型的映射字典
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.TypeExtend.ExtendManager.s_eventDict">
+            <summary>
+            保存事件映射字典
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.TypeExtend.ExtendTypeAttribute">
+            <summary>
+            用于标记扩展类型的修饰属性
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.TypeExtend.ObjectFactory">
+            <summary>
+            创建扩展对象的工厂类型
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.TypeExtend.ObjectFactory.New``1">
+            <summary>
+            尝试创建指定类型的扩展类
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.TypeExtend.ObjectFactory.New(System.Type)">
+            <summary>
+            尝试创建指定类型的扩展类，并且允许订阅实例事件。
+            注意：指定的类型必须包含无参数的构造方法。
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.UrlActionInfo">
+            <summary>
+            表示从URL中提取到的 Controller，Action
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.UrlActionInfo.HttpContextItemKey">
+            <summary>
+            UrlActionInfo的实例将会以此属性做为KEY 存放在 Httpcontext.Item 集合中。
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.UrlActionInfo.AddParam(System.String,System.String)">
+            <summary>
+            给Params集合增加元素
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+        </member>
+        <member name="P:ClownFish.Mvc.UrlActionInfo.Controller">
+            <summary>
+            Controller 名称
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.UrlActionInfo.Action">
+            <summary>
+            Action 名称
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.UrlActionInfo.UrlType">
+            <summary>
+            URL中的用于区分不同类型的附加信息，允许为空。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.UrlActionInfo.Namesapce">
+            <summary>
+            URL中的命名空间信息，也有可能是一个命名空间的别名（RestServiceModule），允许为空
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.UrlActionInfo.ClassName">
+            <summary>
+            URL中的类型名称信息，是一个不完整的类型名称，需要结合Namespace属性一起计算Controller属性
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.UrlActionInfo.MethodName">
+            <summary>
+            URL中的方法名称信息，也有可能是一个参数值（RestServiceModule），因此Action属性需要重新计算
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.UrlActionInfo.ExtName">
+            <summary>
+            URL中的文件扩展名，允许为空。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.UrlActionInfo.RoutePattern">
+            <summary>
+            从RouteTable获取的匹配路由模式
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.UrlActionInfo.Params">
+            <summary>
+            从URL中提取到的参数值
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Reflection.ReflectionHelper.GetReferencedAssemblies">
+            <summary>
+            获取当前程序加载的所有程序集
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Reflection.ReflectionHelper.IsSupportableType(System.Type)">
+            <summary>
+            判断是否是一个可支持的参数类型。仅包括：基元类型，string ，decimal，DateTime，Guid, string[], 枚举
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Reflection.ReflectionHelper.GetRealType(System.Type)">
+            <summary>
+            得到一个实际的类型（排除Nullable类型的影响）。比如：int? 最后将得到int
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Reflection.ReflectionHelper.IsTaskMethod(System.Reflection.MethodInfo)">
+            <summary>
+            判断是不是一个 Task 方法
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Reflection.ReflectionHelper.GetTaskMethodResultType(System.Reflection.MethodInfo)">
+            <summary>
+            检查是不是Task&lt;T&gt;方法，如果是，则返回类型参数T，否则返回 null
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.VoidType">
+            <summary>
+            表示在Action的参数列表中，不需要赋值值的类型，用于区分重载方法
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.VoidType.Value">
+            <summary>
+            VoidType实例的固定引用
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.VoidType.ToString">
+            <summary>
+            ToString
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:ClownFish.Mvc.WebConfig.IsAspnetApp">
+            <summary>
+            当前运行的程序是不是ASP.NET程序
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.WebConfig.IsDebugMode">
+            <summary>
+            相当于HttpContext.IsDebuggingEnabled，不过那个属性是实例的，因此使用不方便，所以就重新实现了一个静态的版本。
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.WebConfig.ValidateRequest">
+            <summary>
+            是否在web.config的pages配置节点开启了validateRequest参数。
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Serializer.ActionParametersProviderFactory">
+            <summary>
+            用于创建Action参数提供者的工厂
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Serializer.ActionParametersProviderFactory.CreateProvider(System.Web.HttpContext)">
+            <summary>
+            根据HttpContext创建一个匹配的IActionParametersProvider实例
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Serializer.ActionParametersProviderFactory.CreateFormProvider(System.Web.HttpContext)">
+            <summary>
+            创建一个可用于解析 FORM表单 的Provider
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Serializer.ActionParametersProviderFactory.CreateDefaultProvider(System.Web.HttpContext)">
+            <summary>
+            创建 默认 的Provider
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Serializer.ActionParametersProviderFactory.CreateJsonProvider(System.Web.HttpContext)">
+            <summary>
+            创建一个可用于解析 JSON 的Provider
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Serializer.ActionParametersProviderFactory.CreateXmlProvider(System.Web.HttpContext)">
+            <summary>
+            创建一个可用于解析 XML 的Provider
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ClownFish.Mvc.Serializer.ActionParametersProviderFactory.Instance">
+            <summary>
+            ActionParametersProviderFactory的实例
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.Serializer.IActionParametersProvider">
+            <summary>
+            定义用于构造Action传入参数的提供者接口
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Serializer.IActionParametersProvider.GetParameters(System.Web.HttpContext,System.Reflection.MethodInfo)">
+            <summary>
+            根据指定的Action方法实例，从HTTP请求中获取调用参数。
+            </summary>
+            <param name="context">HttpContext实例</param>
+            <param name="method">Action方法实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Serializer.FormDataProvider.Serialize(System.Object)">
+            <summary>
+            将一个对象按"application/x-www-form-urlencoded" 方式序列化
+            说明：这个实现与浏览器的实现是有差别的，它不支持数组，也不支持上传文件
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClownFish.Mvc.MyCDATA">
+            <summary>
+            支持CDATA序列化的包装类
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.MyCDATA.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.MyCDATA.#ctor(System.String)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="value">初始值</param>
+        </member>
+        <member name="M:ClownFish.Mvc.MyCDATA.ToString">
+            <summary>
+            ToString()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.MyCDATA.op_Implicit(System.String)~ClownFish.Mvc.MyCDATA">
+            <summary>
+            重载操作符，支持隐式类型转换。
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.MyCDATA.op_Implicit(ClownFish.Mvc.MyCDATA)~System.String">
+            <summary>
+            重载操作符，支持隐式类型转换。
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ClownFish.Mvc.MyCDATA.Value">
+            <summary>
+            原始值。
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.XmlHelper">
+            <summary>
+            实现XML序列化与反序列化的包装工具类
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.XmlHelper.ToXml(System.Object)">
+            <summary>
+            将对象执行XML序列化（使用UTF-8编码）
+            </summary>
+            <param name="obj">要序列化的对象</param>
+            <returns>XML序列化的结果</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.XmlHelper.FromXml``1(System.String)">
+            <summary>
+            从XML字符串中反序列化对象（使用UTF-8编码）
+            </summary>
+            <typeparam name="T">反序列化的结果类型</typeparam>
+            <param name="xml">XML字符串</param>
+            <returns>反序列化的结果</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.XmlHelper.XmlSerialize(System.Object,System.Text.Encoding)">
+            <summary>
+            将一个对象序列化为XML字符串
+            </summary>
+            <param name="o">要序列化的对象</param>
+            <param name="encoding">编码方式</param>
+            <returns>序列化产生的XML字符串</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.XmlHelper.XmlSerializeToFile(System.Object,System.String,System.Text.Encoding)">
+            <summary>
+            将一个对象按XML序列化的方式写入到一个文件
+            </summary>
+            <param name="o">要序列化的对象</param>
+            <param name="path">保存文件路径</param>
+            <param name="encoding">编码方式</param>
+        </member>
+        <member name="M:ClownFish.Mvc.XmlHelper.XmlDeserialize``1(System.String,System.Text.Encoding)">
+            <summary>
+            从XML字符串中反序列化对象
+            </summary>
+            <typeparam name="T">结果对象类型</typeparam>
+            <param name="s">包含对象的XML字符串</param>
+            <param name="encoding">编码方式</param>
+            <returns>反序列化得到的对象</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.XmlHelper.XmlDeserializeFromFile``1(System.String,System.Text.Encoding)">
+            <summary>
+            读入一个文件，并按XML的方式反序列化对象。
+            </summary>
+            <typeparam name="T">结果对象类型</typeparam>
+            <param name="path">文件路径</param>
+            <param name="encoding">编码方式</param>
+            <returns>反序列化得到的对象</returns>
+        </member>
+        <member name="T:ClownFish.Mvc.PageExecutor">
+            <summary>
+            用指定的页面路径以及视图数据呈现结果，最后返回生成的HTML代码。
+            页面应从MyPageView&lt;T&gt;继承
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.PageExecutor.Render(System.Web.HttpContext,System.String,System.Object)">
+            <summary>
+            用指定的页面路径以及视图数据呈现结果，最后返回生成的HTML代码。
+            </summary>
+            <param name="context">HttpContext对象</param>
+            <param name="pageVirtualPath">Page的虚拟路径</param>
+            <param name="model">视图数据</param>
+            <returns>生成的HTML代码</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.PageExecutor.RenderPage(System.Web.HttpContext,System.String,System.Object)">
+            <summary>
+            用指定的页面路径以及视图数据呈现结果，最后返回生成的HTML代码。
+            页面应从MyPageView&lt;T&gt;继承
+            </summary>
+            <param name="context">HttpContext对象</param>
+            <param name="pageVirtualPath">Page的虚拟路径</param>
+            <param name="model">视图数据</param>
+            <returns>生成的HTML代码</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.PageExecutor.GetTextWriter">
+            <summary>
+            获取TextWriter实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.PageExecutor.GetWriteText(System.IO.TextWriter)">
+            <summary>
+            获取页面渲染的HTML代码
+            </summary>
+            <param name="writer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.PageExecutor.GetHandler">
+            <summary>
+            加载页面，以Page形式返回结果
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.PageExecutor.BindModel">
+            <summary>
+            绑定数据对象
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.PageExecutor.BeforeExecute">
+            <summary>
+            执行渲染【前】方法
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.PageExecutor.AfterExecute">
+            <summary>
+            执行渲染【后】方法
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.PageExecutor.HandlerError(System.Object,System.EventArgs)">
+            <summary>
+            处理已发生的异常
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.PageExecutor.GetLastExceptoin">
+            <summary>
+            获取最近发生的异常信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ClownFish.Mvc.PageExecutor.HttpContext">
+            <summary>
+            HttpContext实例引入
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.PageExecutor.PageVirtualPath">
+            <summary>
+            页面的虚拟路径
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.PageExecutor.Model">
+            <summary>
+            要绑定的数据对象
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.PageExecutor.Handler">
+            <summary>
+            已加载的页面实例
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.ActionHandler">
+            <summary>
+            用于同步操作的 HttpHandler
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.MvcPageHandlerFactory">
+            <summary>
+            MvcPageHandlerFactory
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.ActionAttribute">
+            <summary>
+            将一个方法标记为一个Action
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.ActionAttribute.Verb">
+            <summary>
+            允许哪些访问动词，与web.config中的httpHanlder的配置意义一致。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.ActionAttribute.ValidateRequest">
+            <summary>
+            确定 ASP.NET 是否针对危险值检查来自浏览器的输入。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.ActionAttribute.OutFormat">
+            <summary>
+            Action结果的序列化方式
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.SessionMode">
+            <summary>
+            Action所支持的Session模式
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.SessionMode.NotSupport">
+            <summary>
+            不支持
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.SessionMode.Support">
+            <summary>
+            全支持
+            </summary>
+        </member>
+        <member name="F:ClownFish.Mvc.SessionMode.ReadOnly">
+            <summary>
+            仅支持读取
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.SessionModeAttribute">
+            <summary>
+            给Action描述Session的支持模式
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.SessionModeAttribute.#ctor(ClownFish.Mvc.SessionMode)">
+            <summary>
+            构造方法
+            </summary>
+            <param name="mode"></param>
+        </member>
+        <member name="P:ClownFish.Mvc.SessionModeAttribute.SessionMode">
+            <summary>
+            要支持的Session模式
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.MyBaseMasterPage">
+            <summary>
+            MasterPage基类
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.MyBasePage">
+            <summary>
+            一个基于“System.Web.UI.Page”的类
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.MyBasePage.SetModel(System.Object)">
+            <summary>
+            为当前页面设置可绑定的数据对象
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="T:ClownFish.Mvc.MyBaseUserControl">
+            <summary>
+            一个“用户控件”基类
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.MyBaseUserControl.SetModel(System.Object)">
+            <summary>
+            为当前实例指定可绑定的数据对象
+            </summary>
+            <param name="model">可绑定的数据对象</param>
+        </member>
+        <member name="T:ClownFish.Mvc.MyPageView`1">
+            <summary>
+            页面视图的基类
+            </summary>
+            <typeparam name="TModel">传递给页面呈现时所需的数据实体对象类型</typeparam>
+        </member>
+        <member name="M:ClownFish.Mvc.MyPageView`1.SetModel(System.Object)">
+            <summary>
+            用于页面呈现时所需的数据实体对象
+            </summary>
+            <param name="model">可绑定的数据对象</param>
+        </member>
+        <member name="P:ClownFish.Mvc.MyPageView`1.Model">
+            <summary>
+            用于页面呈现时所需的数据实体对象
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.MyUserControlView`1">
+            <summary>
+            基于用户控件的视图基类，这类用户控件只是用于呈现数据。
+            </summary>
+            <typeparam name="TModel">传递给用户控件呈现时所需的数据实体对象类型</typeparam>
+        </member>
+        <member name="M:ClownFish.Mvc.MyUserControlView`1.SetModel(System.Object)">
+            <summary>
+            为当前实例指定可绑定的数据对象
+            </summary>
+            <param name="model">可绑定的数据对象</param>
+        </member>
+        <member name="P:ClownFish.Mvc.MyUserControlView`1.Model">
+            <summary>
+            用于页面呈现时所需的数据实体对象
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.RazorHelper">
+            <summary>
+            针对Razor视图引擎操作封装的工具类
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.RazorHelper.Render(System.Web.HttpContext,System.String,System.Object)">
+            <summary>
+            渲染一个Razor视图模板
+            </summary>
+            <param name="context">HttpContext实例引用</param>
+            <param name="pageVirtualPath">Razor视图的路径</param>
+            <param name="model">要渲染到视图上的数据对象</param>
+            <returns>渲染后的HTML代码</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.RazorHelper.Render(System.Web.HttpContextBase,System.String,System.Object)">
+            <summary>
+            渲染一个Razor视图模板
+            </summary>
+            <param name="context">HttpContextBase实例引用</param>
+            <param name="pageVirtualPath">Razor视图的路径</param>
+            <param name="model">要渲染到视图上的数据对象</param>
+            <returns>渲染后的HTML代码</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.RazorHelper.RenderPage(System.Web.HttpContextBase,System.String,System.Object)">
+            <summary>
+            渲染一个Razor视图模板
+            </summary>
+            <param name="context">HttpContextBase实例引用</param>
+            <param name="pageVirtualPath">Razor视图的路径</param>
+            <param name="model">要渲染到视图上的数据对象</param>
+            <returns>渲染后的HTML代码</returns>
+        </member>
+        <member name="T:ClownFish.Mvc.ViewType">
+            <summary>
+            ViewType
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.ViewType.TypeName">
+            <summary>
+            TypeName
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.ViewTypeParserFilter.PreprocessDirective(System.String,System.Collections.IDictionary)">
+            <summary>
+            预处理：页面，用户控件上的指令
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.ActionExecutor">
+            <summary>
+            执行Action的处理器
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.ActionExecutor.ObjectToActionResult(System.Object,ClownFish.Mvc.SerializeFormat)">
+            <summary>
+            尝试根据方法的修饰属性来构造IActionResult实例
+            </summary>
+            <param name="result"></param>
+            <param name="format"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ClownFish.Mvc.ActionExecutor.HttpContext">
+            <summary>
+            HttpContext实例引用
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.ActionExecutor.UserData">
+            <summary>
+            保存用户额外的数据，如果需要使用，请自行赋值。
+            </summary>
+        </member>
+        <member name="E:ClownFish.Mvc.ActionExecutor.OnBeginRequest">
+            <summary>
+            开始进入执行阶段的事件
+            </summary>
+        </member>
+        <member name="E:ClownFish.Mvc.ActionExecutor.OnCorsCheck">
+            <summary>
+            执行跨域检查阶段的事件
+            </summary>
+        </member>
+        <member name="E:ClownFish.Mvc.ActionExecutor.OnAuthorizeRequest">
+            <summary>
+            授权检查阶段的事件
+            </summary>
+        </member>
+        <member name="E:ClownFish.Mvc.ActionExecutor.OnGetActionParameters">
+            <summary>
+            获取Action参数阶段的事件
+            </summary>
+        </member>
+        <member name="E:ClownFish.Mvc.ActionExecutor.BeforeExecuteAction">
+            <summary>
+            执行Action【前】的事件
+            </summary>
+        </member>
+        <member name="E:ClownFish.Mvc.ActionExecutor.AfterExecuteAction">
+            <summary>
+            执行Action【后】的事件
+            </summary>
+        </member>
+        <member name="E:ClownFish.Mvc.ActionExecutor.OnOutputResult">
+            <summary>
+            设置输出阶段的事件
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.Reflection.ModelHelper.GetModelDescription(System.Type)">
+            <summary>
+            返回一个实体类型的描述信息（全部属性及字段）。
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Reflection.ModelHelper.FillModel(System.Web.HttpContext,System.Object,System.String)">
+            <summary>
+            根据HttpRequest填充一个数据实体。
+            这里不支持嵌套类型的数据实体，且要求各数据成员都是简单的数据类型。
+            </summary>
+            <param name="context"></param>
+            <param name="model"></param>
+            <param name="paramName"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.Reflection.ModelHelper.GetHttpValues(System.Web.HttpContext,System.String)">
+            <summary>
+            读取一个HTTP参数值。这里只读取QueryString以及Form
+            </summary>
+            <param name="context"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Reflection.ModelHelper.GetStringImplicit(System.Type)">
+            <summary>
+            判断指定的类型是否能从String类型做隐式类型转换，如果可以，则返回相应的方法
+            </summary>
+            <param name="conversionType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Reflection.ControllerResolver.GetActionInvokeInfo(ClownFish.Mvc.UrlActionInfo)">
+            <summary>
+            根据一个Action的调用信息（类名与方法名），返回内部表示的调用信息。
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.Reflection.ControllerResolver.GetActionInvokeInfo(System.String)">
+            <summary>
+            根据一个页面请求路径，返回内部表示的调用信息。
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ClownFish.Mvc.Reflection.ControllerResolver.DiagnoseResult">
+            <summary>
+            收集404错误的诊断结果对象。
+            注意：如果为NULL，表示不进行诊断测试，如果不空，表示要执行诊断测试。
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Reflection.InvokeInfo.Instance">
+            <summary>
+            Controller Instance
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Reflection.InvokeInfo.RegexMatch">
+            <summary>
+            应用到 PageController Action 的PageRegexUrlAttribute的正则表达式
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.Reflection.InvokeInfo.UrlActionInfo">
+            <summary>
+            解析 ServiceController 时提取的URL信息
+            </summary>
+        </member>
+        <member name="T:ClownFish.Mvc.UcExecutor">
+            <summary>
+            用指定的用户控件以及视图数据呈现结果，最后返回生成的HTML代码。
+            用户控件应从MyUserControlView&lt;T&gt;继承
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.UcExecutor.Render(System.String,System.Object)">
+            <summary>
+            用指定的用户控件以及视图数据呈现结果，最后返回生成的HTML代码。
+            用户控件应从MyUserControlView&lt;T&gt;继承
+            </summary>
+            <param name="ucVirtualPath">用户控件的虚拟路径</param>
+            <param name="model">视图数据</param>
+            <returns>生成的HTML代码</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.UcExecutor.RenderUserControl(System.String,System.Object)">
+            <summary>
+            用指定的用户控件以及视图数据呈现结果，最后返回生成的HTML代码。
+            用户控件应从MyUserControlView&lt;T&gt;继承
+            </summary>
+            <param name="ucVirtualPath">用户控件的虚拟路径</param>
+            <param name="model">视图数据</param>
+            <returns>生成的HTML代码</returns>
+        </member>
+        <member name="M:ClownFish.Mvc.UcExecutor.LoadControl">
+            <summary>
+            加载用户控件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.UcExecutor.BindModel">
+            <summary>
+            绑定数据对象
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.UcExecutor.GetTextWriter">
+            <summary>
+            获取TextWriter实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.UcExecutor.GetWriteText(System.IO.TextWriter)">
+            <summary>
+            获取用户控件渲染的HTML代码
+            </summary>
+            <param name="writer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClownFish.Mvc.UcExecutor.Execute(System.IO.TextWriter)">
+            <summary>
+            执行控件渲染过程
+            </summary>
+            <param name="output"></param>
+        </member>
+        <member name="M:ClownFish.Mvc.UcExecutor.BeforeExecute">
+            <summary>
+            执行渲染【前】方法
+            </summary>
+        </member>
+        <member name="M:ClownFish.Mvc.UcExecutor.AfterExecute">
+            <summary>
+            执行渲染【后】方法
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.UcExecutor.Page">
+            <summary>
+            包含用户控件的Page实例
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.UcExecutor.Control">
+            <summary>
+            已加载的用户控件
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.UcExecutor.UserControlVirtualPath">
+            <summary>
+            用户控件的虚拟路径
+            </summary>
+        </member>
+        <member name="P:ClownFish.Mvc.UcExecutor.Model">
+            <summary>
+            要绑定的数据对象
+            </summary>
+        </member>
+    </members>
+</doc>
